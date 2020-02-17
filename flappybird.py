@@ -1,1 +1,5 @@
-# hi arnold
+# hi 
+
+import pygame
+
+pygame.init()
