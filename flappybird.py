@@ -10,9 +10,13 @@ pygame.display.set_caption("First Game")
 
 x = 50
 y = 50
-width = 40
-height = 60
-vel = 5
+width = 25
+height = 25
+vel = 0
+acc = 0
+gravity = 1
+block_color = (255, 0, 0)
+bg_color = (0, 0, 0)
 
 run = True
 while run:
@@ -22,7 +26,21 @@ while run:
         if event.type == pygame.QUIT:
             run = False
     
-    pygame.draw.rect(win, (255, 0, 0), (x, y, width, height))
+    keys = pygame.key.get_pressed()
+
+    if keys[pygame.K_UP]:
+        acc = 0
+        vel = 0
+        y -= 100
+    else:
+        acc += gravity
+        vel += acc
+        y += vel
+
+    
+    win.fill(bg_color)
+
+    pygame.draw.rect(win, block_color, (x, y, width, height))
     pygame.display.update()
 
 
