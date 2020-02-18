@@ -12,39 +12,49 @@ pygame.display.set_caption("FlappyBird")
 
 x = 50
 y = 50
-width = 25
-height = 25
 vel = 0
 acc = 0
-gravity = 1
+gravity = 0.01
 block_color = (255, 0, 0)
 bg_color = (0, 0, 0)
+bgImg = pygame.image.load('bg.png').convert()
+birdImg = pygame.image.load('bird.png')
+cooldown = 100
 
-bird = pygame.image.load("")
+
+def bird(x,y):
+    win.blit(birdImg, (x,y))
+
+def bg():
+    win.blit(bgImg, (0,0))
 
 run = True
 while run:
-    pygame.time.delay(10)
+    pygame.time.delay(15)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-    
-    keys = pygame.key.get_pressed()
 
-    if keys[pygame.K_UP]:
+    if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
         acc = 0
         vel = 0
-        y -= 100
+        if y < 100:
+            y = 0
+        else:
+            y -= 50
     else:
         acc += gravity
         vel += acc
-        y += vel
+        if y >= display_height - 100:
+            y = display_height - 100
+        else:
+            y += vel
 
-    
-    win.fill(bg_color)
+    pygame.event.clear()
 
-    pygame.draw.rect(win, block_color, (x, y, width, height))
+    bg()
+    bird(x, y)
     pygame.display.update()
 
 
