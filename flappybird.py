@@ -4,9 +4,11 @@ import pygame
 
 pygame.init()
 
-win = pygame.display.set_mode((500,500))
+display_width = 500
+display_height = 500
 
-pygame.display.set_caption("First Game")
+win = pygame.display.set_mode((display_width, display_height))
+pygame.display.set_caption("FlappyBird")
 
 x = 50
 y = 50
@@ -18,9 +20,11 @@ gravity = 1
 block_color = (255, 0, 0)
 bg_color = (0, 0, 0)
 
+bird = pygame.image.load("")
+
 run = True
 while run:
-    pygame.time.delay(100)
+    pygame.time.delay(10)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
