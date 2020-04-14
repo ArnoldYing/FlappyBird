@@ -1,15 +1,15 @@
-# hi 
-
+# imports
 import pygame
+import math
+import random
+
 
 pygame.init()
 
+
+#define variables
 display_width = 500
 display_height = 500
-
-win = pygame.display.set_mode((display_width, display_height))
-pygame.display.set_caption("FlappyBird")
-
 x = 50
 y = 50
 vel = 0
@@ -20,6 +20,10 @@ bg_color = (0, 0, 0)
 bgImg = pygame.image.load('bg.png').convert()
 birdImg = pygame.image.load('bird.png')
 cooldown = 100
+
+
+win = pygame.display.set_mode((display_width, display_height))
+pygame.display.set_caption("FlappyBird")
 
 
 def bird(x,y):
