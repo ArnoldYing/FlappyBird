@@ -1,4 +1,3 @@
-FlappyBird (In Development)
+FlappyBird 
 
-Our attempt at making the infamous rage-inducing game FlappyBird
-
+Our attempt at the infamous rage-inducing game FlappyBird
